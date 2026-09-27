@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tier list resenhuda</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+<main>
+    <header class="titt">
+        <p class="eyebrow">SUAS FOTOS. SEU RANKING.</p>
+        <h1>tier list resenhuda</h1>
+    </header>
+    <section class="boards" aria-label="Suas tier lists">
+        <div class="boards-top">
+            <h2>Minhas tier lists</h2>
+            <form id="new-board-form">
+                <label class="visually-hidden" for="new-board-name">Nome da nova tier list</label>
+                <input id="new-board-name" name="name" type="text" maxlength="60" placeholder="Ex.: Melhores jogos" required disabled>
+                <button id="create-board" type="submit" disabled>+ Criar tier list</button>
+            </form>
+        </div>
+        <nav id="board-links" class="board-links" aria-label="Escolher tier list"></nav>
+    </section>
+    <section class="toolbar" aria-label="Importar fotos">
+        <div class="import-actions">
+            <button id="import-files" class="primary" type="button" disabled>+ Importar fotos</button>
+            <button id="import-folder" type="button" disabled>Importar pasta</button>
+            <span class="file-hint">PNG, JPG, WebP ou GIF · até 10 MB por foto</span>
+        </div>
+        <p id="save-status" class="status" role="status">Carregando suas fotos…</p>
+        <button id="retry" type="button" hidden>Tentar novamente</button>
+    </section>
+    <p class="instructions">Arraste uma foto para uma caixa ou selecione a foto e clique na caixa. Clique em uma caixa vazia para importar diretamente.</p>
+    <p id="selection-status" class="selection-status" role="status"></p>
+    <div class="container" aria-label="Ranking de fotos">
+        <section class="sessao" aria-labelledby="label-S">
+            <h2 id="label-S" class="caixa rank-s">S</h2>
+            <div class="tier" data-tier="S" aria-label="Caixas da categoria S"></div>
+        </section>
+        <section class="sessao" aria-labelledby="label-A">
+            <h2 id="label-A" class="caixa rank-a">A</h2>
+            <div class="tier" data-tier="A" aria-label="Caixas da categoria A"></div>
+        </section>
+        <section class="sessao" aria-labelledby="label-B">
+            <h2 id="label-B" class="caixa rank-b">B</h2>
+            <div class="tier" data-tier="B" aria-label="Caixas da categoria B"></div>
+        </section>
+        <section class="sessao" aria-labelledby="label-C">
+            <h2 id="label-C" class="caixa rank-c">C</h2>
+            <div class="tier" data-tier="C" aria-label="Caixas da categoria C"></div>
+        </section>
+        <section class="sessao" aria-labelledby="label-D">
+            <h2 id="label-D" class="caixa rank-d">D</h2>
+            <div class="tier" data-tier="D" aria-label="Caixas da categoria D"></div>
+        </section>
+    </div>
+    <section id="library" class="library" aria-labelledby="library-title">
+        <div class="library-header">
+            <div>
+                <h2 id="library-title">Fotos disponíveis <span id="photo-count">0</span></h2>
+                <p>Fotos desta tier list. Arraste uma foto de volta para tirar do ranking.</p>
+            </div>
+            <button id="clear-selection" type="button" hidden>Cancelar seleção</button>
+        </div>
+        <div id="photos" class="photos"></div>
+        <p id="empty-library" class="empty-library">Importe suas fotos para começar a resenha.</p>
+    </section>
+    <footer>Cada tier list tem suas próprias fotos. Tudo é salvo automaticamente neste computador.</footer>
+    <dialog id="delete-dialog" aria-labelledby="delete-title" aria-describedby="delete-description">
+        <form method="dialog">
+            <h2 id="delete-title">Excluir foto?</h2>
+            <p id="delete-description"></p>
+            <div class="dialog-actions">
+                <button id="cancel-delete" value="cancel" type="submit">Cancelar</button>
+                <button id="confirm-delete" class="danger" value="delete" type="submit">Excluir foto</button>
+            </div>
+        </form>
+    </dialog>
+    <noscript>Ative o JavaScript no navegador para importar e organizar suas fotos.</noscript>
+    <input id="files-input" type="file" accept="image/png,image/jpeg,image/webp,image/gif,.png,.jpg,.jpeg,.webp,.gif" multiple hidden>
+    <input id="folder-input" type="file" accept="image/*" webkitdirectory multiple hidden>
+    <input id="slot-input" type="file" accept="image/png,image/jpeg,image/webp,image/gif,.png,.jpg,.jpeg,.webp,.gif" hidden>
+</main>
+</body>
+</html>
